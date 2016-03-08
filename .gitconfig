@@ -1,0 +1,34 @@
+[push]
+	default = current
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	filemode = false
+	fscache = true
+	preloadindex = true
+
+[alias]
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ln = log --pretty=format:\"%Cgreen%H %Creset%an %Cgreen%ae %Creset(%ar)\"
+	s = !cat .git/HEAD
+	ood = !git fetch > /dev/null && git branch -v | grep -Ei \"\\b(ahead|behind) +[0-9]\" | sed -r \"s/((ahead|behind) [0-9]+\\]).*/\\1/\"
+	do = !git diff origin/$(git rev-parse --abbrev-ref HEAD) $(git rev-parse --abbrev-ref HEAD)
+	dto = !git difftool origin/$(git rev-parse --abbrev-ref HEAD) $(git rev-parse --abbrev-ref HEAD)
+	lvold = !git fetch > /dev/null && git tag | grep -E \"^v\\/\" | sed -E \"s/^v\\///g\" | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | tail -1
+	showtool = "!sh -c 'if [ -z $1 ]; then REVISION=HEAD; else REVISION=$1; fi; git difftool $REVISION~ $REVISION' -"
+	ignored = !git ls-files -v | grep "^[[:lower:]]" | sed "s/^..//"
+
+[difftool]
+	prompt = false
+
+[fetch]
+	prune = true
+
+[gc]
+	auto = 256
+
+[mergetool]
+	prompt = false
+
