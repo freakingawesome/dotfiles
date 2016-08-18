@@ -28,6 +28,9 @@ Plugin 'git://git.wincent.com/command-t.git'
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
 
+" TODO: this is that Go fuzzy finder paul mentioned:
+" Plugin 'https://github.com/junegunn/fzf.vim'
+
 Plugin 'kien/ctrlp.vim'
 
 Plugin 'mileszs/ack.vim'
@@ -64,7 +67,7 @@ Plugin 'https://github.com/editorconfig/editorconfig-vim'
 
 Plugin 'fatih/vim-go'
 
-Plugin 'junegunn/vim-peekaboo'
+" Plugin 'junegunn/vim-peekaboo'
 
 " Plugin 'https://github.com/lambdatoast/elm.vim'
 Plugin 'https://github.com/ElmCast/elm-vim'
@@ -116,6 +119,7 @@ map Y y$
 
 set tabstop=2
 set shiftwidth=2
+set expandtab
 
 if &diff
     " diff mode
@@ -194,4 +198,3 @@ let g:elm_detailed_complete = 1
 
 nnoremap [q :cp<cr>
 nnoremap ]q :cn<cr>
-
