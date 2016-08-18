@@ -7,6 +7,7 @@
 	filemode = false
 	fscache = true
 	preloadindex = true
+	longPaths = true
 
 [alias]
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
@@ -20,6 +21,9 @@
 	showtool = "!sh -c 'if [ -z $1 ]; then REVISION=HEAD; else REVISION=$1; fi; git difftool $REVISION~ $REVISION' -"
 	ignored = !git ls-files -v | grep "^[[:lower:]]" | sed "s/^..//"
 
+[diff]
+	compactionHeuristic = true
+
 [difftool]
 	prompt = false
 
@@ -32,3 +36,10 @@
 [mergetool]
 	prompt = false
 
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+
+[interactive]
+	diffFilter = diff-highlight
