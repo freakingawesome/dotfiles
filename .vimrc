@@ -200,6 +200,13 @@ let g:elm_detailed_complete = 1
 nnoremap [q :cp<cr>
 nnoremap ]q :cn<cr>
 
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
+
+set autoread
+
 let g:elm_format_autosave = 1
 
 au BufRead,BufNewFile *.elmx setfiletype elm
