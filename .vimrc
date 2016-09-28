@@ -200,6 +200,10 @@ let g:elm_detailed_complete = 1
 nnoremap [q :cp<cr>
 nnoremap ]q :cn<cr>
 
+let g:elm_format_autosave = 1
+
+au BufRead,BufNewFile *.elmx setfiletype elm
+
 " vim-grepper
 nnoremap <leader>git :Grepper -tool git -noswitch<cr>
 nnoremap <leader>ag  :Grepper -tool ag -grepprg ag --vimgrep<cr>
