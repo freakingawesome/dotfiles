@@ -66,6 +66,8 @@ Plugin 'https://github.com/editorconfig/editorconfig-vim'
 
 Plugin 'fatih/vim-go'
 
+Plugin 'fsharp/vim-fsharp'
+
 " Plugin 'junegunn/vim-peekaboo'
 
 " Plugin 'https://github.com/lambdatoast/elm.vim'
