@@ -28,10 +28,9 @@ Plugin 'tpope/vim-fugitive'
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
 
-" TODO: this is that Go fuzzy finder paul mentioned:
-" Plugin 'https://github.com/junegunn/fzf.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'mhinz/vim-grepper'
 
 Plugin 'mileszs/ack.vim'
 
@@ -198,3 +197,12 @@ let g:elm_detailed_complete = 1
 
 nnoremap [q :cp<cr>
 nnoremap ]q :cn<cr>
+
+" vim-grepper
+nnoremap <leader>git :Grepper -tool git -noswitch<cr>
+nnoremap <leader>ag  :Grepper -tool ag -grepprg ag --vimgrep<cr>
+nnoremap <leader>*   :Grepper -tool ag -cword -noprompt<cr>
+
+nnoremap <leader>c :ccl<cr>
+
+
