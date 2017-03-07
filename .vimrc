@@ -68,6 +68,8 @@ Plugin 'fatih/vim-go'
 
 Plugin 'fsharp/vim-fsharp'
 
+Plugin 'https://github.com/vim-scripts/vim-auto-save'
+
 " Plugin 'junegunn/vim-peekaboo'
 
 " Plugin 'https://github.com/lambdatoast/elm.vim'
