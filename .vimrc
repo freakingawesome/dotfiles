@@ -120,8 +120,8 @@ nnoremap Q :qa<cr>
 map Y y$
 
 
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 if &diff
