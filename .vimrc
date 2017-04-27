@@ -77,6 +77,10 @@ Plugin 'https://github.com/ElmCast/elm-vim'
 
 Plugin 'godlygeek/tabular'
 
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'mxw/vim-jsx'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -223,3 +227,6 @@ nnoremap <leader>c :ccl<cr>
 " Ctrl-P - ignore files based on .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+
+" Enable goimports to automatically insert import paths instead of gofmt
+let g:go_fmt_command = "goimports"
