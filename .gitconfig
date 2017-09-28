@@ -36,12 +36,12 @@
 [mergetool]
 	prompt = false
 
-# [pager]
+[pager]
     # log = ~/bin/diff-highlight | less
     # show = ~/bin/diff-highlight | less
-    # diff = ~/bin/diff-highlight | less
-# [core]
-    # pager = diff-highlight | less -r
+    diff = ~/bin/diff-highlight | less
+[core]
+    pager = ~/bin/diff-highlight | less -r
 
-# [interactive]
-    # diffFilter = diff-highlight
+[interactive]
+    diffFilter = ~/bin/diff-highlight
