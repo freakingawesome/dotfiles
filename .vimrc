@@ -243,3 +243,6 @@ nmap <f2> @b
 nmap <f3> @c
 
 set encoding=utf-8
+
+:nnoremap <F5> "=(strftime('%FT%T') . strpart(strftime('%z'), 0, 3) . ":00")<CR>P
+:inoremap <F5> <C-R>=(strftime('%FT%T') . strpart(strftime('%z'), 0, 3) . ":00")<CR>
