@@ -230,3 +230,14 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 " Enable goimports to automatically insert import paths instead of gofmt
 let g:go_fmt_command = "goimports"
+
+au FileType html,php setlocal indentexpr=
+
+nmap <down> ]qzz
+nmap <up> [qzz
+
+nmap <f1> @a
+nmap <f2> @b
+nmap <f3> @c
+
+set encoding=utf-8
