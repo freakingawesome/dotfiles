@@ -20,6 +20,7 @@
 	lvold = !git fetch > /dev/null && git tag | grep -E \"^v\\/\" | sed -E \"s/^v\\///g\" | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | tail -1
 	showtool = "!sh -c 'if [ -z $1 ]; then REVISION=HEAD; else REVISION=$1; fi; git difftool $REVISION~ $REVISION' -"
 	ignored = !git ls-files -v | grep "^[[:lower:]]" | sed "s/^..//"
+	p4 = mergetool --tool=p4merge
 
 	# apply-gitignore pulled from http://stackoverflow.com/questions/7527982/applying-gitignore-to-committed-files
 	apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0r git rm --cached
