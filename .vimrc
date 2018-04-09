@@ -256,3 +256,11 @@ set encoding=utf-8
 au FileType markdown setlocal spell spelllang=en_us
 
 nnoremap <leader>s ea<C-X><C-S>
+
+" https://www.reddit.com/r/vim/comments/7yn0xa/editing_macros_easily_in_vim/
+" Usage: crq to edit register q.
+fun! ChangeReg() abort
+  let x = nr2char(getchar())
+  call feedkeys("q:ilet @" . x . " = \<c-r>\<c-r>=string(@" . x . ")\<cr>\<esc>0f'", 'n')
+endfun
+nnoremap cr :call ChangeReg()<cr>
