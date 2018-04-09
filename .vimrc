@@ -83,6 +83,12 @@ Plugin 'mxw/vim-jsx'
 
 Plugin 'nbouscal/vim-stylish-haskell'
 
+Plugin 'chr4/nginx.vim'
+
+Plugin 'leafgarland/typescript-vim'
+
+Plugin 'udalov/kotlin-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
