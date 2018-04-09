@@ -254,3 +254,5 @@ set encoding=utf-8
 :inoremap <F5> <C-R>=(strftime('%FT%T') . strpart(strftime('%z'), 0, 3) . ":00")<CR>
 
 au FileType markdown setlocal spell spelllang=en_us
+
+nnoremap <leader>s ea<C-X><C-S>
