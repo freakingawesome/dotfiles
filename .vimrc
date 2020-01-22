@@ -250,8 +250,10 @@ nmap <f3> @c
 
 set encoding=utf-8
 
-:nnoremap <F5> "=(strftime('%FT%T') . strpart(strftime('%z'), 0, 3) . ":00")<CR>P
-:inoremap <F5> <C-R>=(strftime('%FT%T') . strpart(strftime('%z'), 0, 3) . ":00")<CR>
+if !exists('has_vsvim')
+    :nnoremap <F5> "=(strftime('%FT%T') . strpart(strftime('%z'), 0, 3) . ":00")<CR>P
+    :inoremap <F5> <C-R>=(strftime('%FT%T') . strpart(strftime('%z'), 0, 3) . ":00")<CR>
+endif
 
 au FileType markdown setlocal spell spelllang=en_us
 

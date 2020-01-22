@@ -1,0 +1,4 @@
+let has_vsvim = 1
+
+so ~/dotfiles/.vimrc
+
