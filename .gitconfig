@@ -18,13 +18,20 @@
 	do = !git diff origin/$(git rev-parse --abbrev-ref HEAD) $(git rev-parse --abbrev-ref HEAD)
 	dto = !git difftool origin/$(git rev-parse --abbrev-ref HEAD) $(git rev-parse --abbrev-ref HEAD)
 	lvold = !git fetch > /dev/null && git tag | grep -E \"^v\\/\" | sed -E \"s/^v\\///g\" | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | tail -1
+	lv = !git fetch > /dev/null && latestversion=$(git tag | grep -E \"^v\\/\" | sort -t. -k 1,1n -k 2,2n -k 3,3n -k 4,4n | tail -1) && echo ========== && echo latest version: $latestversion && echo ----- && echo commits not yet built: && git log --format=\"%h %cn (%cr)\" $latestversion..origin/develop && echo ----- && echo Pushing now should increment your commit version by $(git log --format="%cn" $latestversion..origin/develop | sort | uniq | wc -l | sed -E \"s/\\s+//g\")
 	showtool = "!sh -c 'if [ -z $1 ]; then REVISION=HEAD; else REVISION=$1; fi; git difftool $REVISION~ $REVISION' -"
-	ignore = !git update-index --assume-unchanged --
+    ignore = !git update-index --assume-unchanged --
 	ignored = !git ls-files -v | grep "^[[:lower:]]" | sed "s/^..//"
-	unignore-all = !git ignored | xargs git update-index --no-assume-unchanged
-	p4 = mergetool --tool=p4merge
+    unignore-all = !git ignored | xargs git update-index --no-assume-unchanged
+    undockerize = !git stash list | grep undockerize | sed 's/\\:.*//g' | xargs git stash apply
+    p4 = mergetool --tool=p4merge
+    
+    nows = !git diff -w --no-color | git apply --cached --ignore-whitespace
 
-	# apply-gitignore pulled from http://stackoverflow.com/questions/7527982/applying-gitignore-to-committed-files
+    wtf = log --decorate --follow -m --source --all -S
+    wtfr = log --decorate --follow -m --source --all -G
+
+    # apply-gitignore pulled from http://stackoverflow.com/questions/7527982/applying-gitignore-to-committed-files
 	apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0r git rm --cached
 
 [diff]

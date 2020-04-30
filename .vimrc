@@ -89,6 +89,18 @@ Plugin 'leafgarland/typescript-vim'
 
 Plugin 'udalov/kotlin-vim'
 
+" Plugin 'kburdett/vim-nuuid'
+
+" Plugin 'ryanoasis/vim-devicons'
+
+Plugin 'junegunn/goyo.vim'
+
+Plugin 'vim-scripts/keepcase.vim'
+
+"Plugin 'mattn/vim-particle'
+
+"Plugin 'TaDaa/vimade'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -241,12 +253,21 @@ let g:go_fmt_command = "goimports"
 
 au FileType html,php setlocal indentexpr=
 
-nmap <down> ]qzz
-nmap <up> [qzz
+" left/right to step through buffers 
+nnoremap <silent> <left> :bp<cr>
+nnoremap <silent> <right> :bn<cr>
+
+" down/up to step through quickfix list
+nnoremap <silent> <down> :cn<cr>zz
+nnoremap <silent> <up> :cp<cr>zz
 
 nmap <f1> @a
 nmap <f2> @b
 nmap <f3> @c
+
+" gv to open a vsplit and go to definition
+" actually no since gv selects last visual block
+" map gv :vs<cr>gd
 
 set encoding=utf-8
 
@@ -256,6 +277,7 @@ if !exists('has_vsvim')
 endif
 
 au FileType markdown setlocal spell spelllang=en_us
+au FileType markdown setlocal textwidth=120
 
 nnoremap <leader>s ea<C-X><C-S>
 
@@ -266,3 +288,10 @@ fun! ChangeReg() abort
   call feedkeys("q:ilet @" . x . " = \<c-r>\<c-r>=string(@" . x . ")\<cr>\<esc>0f'", 'n')
 endfun
 nnoremap cr :call ChangeReg()<cr>
+
+" Disable audible and visual bells
+set noeb vb t_vb=
+au GUIEnter * set vb t_vb=
+
+set cursorline
+
