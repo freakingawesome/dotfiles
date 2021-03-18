@@ -1,7 +1,14 @@
 if [ $(pwd) == ~ ] || [ $(pwd) == / ]; then cd /c/proj; fi
 alias open='cygstart'
 
-alias gf='git fetch'
+function gf() {
+    if [ -z "$1" ]; then
+        git fetch
+    else
+        git fetch origin "$1":"$1"
+    fi
+}
+
 alias gp='git pull'
 alias gs='git status'
 alias ga='git add --all'
