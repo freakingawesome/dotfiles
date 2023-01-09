@@ -1,24 +1,88 @@
-function GitAlias-gp { git pull }
-function GitAlias-gs { git status }
-function GitAlias-ga { git add --all }
-function GitAlias-gl { git log --graph --decorate }
-function GitAlias-gla { git log --all --graph --decorate }
-function GitAlias-gan { git add -N --all }
-function GitAlias-gap { git add -p --all }
-function GitAlias-ganp { git add -pN --all }
-function GitAlias-gai { git add -i --all }
-function GitAlias-gca { git commit --amend }
-function GitAlias-gd { clear && git diff }
-function GitAlias-gds { clear && git diff --staged }
-function GitAlias-gdt { git difftool }
-function GitAlias-gdts { git difftool --staged }
-function GitAlias-gc { git commit }
-function GitAlias-gcv { git commit -v }
-function GitAlias-gcm { git commit -m  }
-function GitAlias-gr { git for-each-ref --sort=-committerdate refs/heads/ }
-function GitAlias-grh { git for-each-ref --sort=-committerdate refs/heads/ | head }
-function GitAlias-gcp { git checkout -p }
-function GitAlias-gfodd { git fetch origin develop:develop }
+
+function GitAlias-gp {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git pull @args
+}
+function GitAlias-gs {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git status @args
+}
+function GitAlias-ga {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git add --all @args
+}
+function GitAlias-gl {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git log --graph --decorate @args
+}
+function GitAlias-gla {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git log --all --graph --decorate @args
+}
+function GitAlias-gan {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git add -N --all @args
+}
+function GitAlias-gap {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git add -p --all @args
+}
+function GitAlias-ganp {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git add -pN --all @args
+}
+function GitAlias-gai {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git add -i --all @args
+}
+function GitAlias-gca {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git commit --amend @args
+}
+function GitAlias-gd {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    clear && git diff @args
+}
+function GitAlias-gds {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    clear && git diff --staged @args
+}
+function GitAlias-gdt {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git difftool @args
+}
+function GitAlias-gdts {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git difftool --staged @args
+}
+function GitAlias-gc {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git commit @args
+}
+function GitAlias-gcv {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git commit -v @args
+}
+function GitAlias-gcm {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git commit -m @args
+}
+function GitAlias-gr {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git for-each-ref --sort=-committerdate refs/heads/ @args
+}
+function GitAlias-grh {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git for-each-ref --sort=-committerdate refs/heads/ | head @args
+}
+function GitAlias-gcp {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git checkout -p @args
+}
+function GitAlias-gfodd {
+    [parameter(mandatory=$false, position=0, ValueFromRemainingArguments=$true)]$args
+    git fetch origin develop:develop @args
+}
 
 Set-Alias -Force -Name gp -Value GitAlias-gp
 Set-Alias -Name gs -Value GitAlias-gs
