@@ -40,3 +40,4 @@ b64d() { while read line; do echo $line | base64 -d; echo; done }
 
 newpost() { POST=post/$(date -I)-$1.md; hugo new $POST; vim content/$POST; }
 
+remove-merge-detritus() { find . -regextype posix-egrep \( -regex '.*_(BACKUP|BASE|LOCAL|REMOTE)_.*' -o -name '*.orig' \) | xargs --no-run-if-empty rm; }
