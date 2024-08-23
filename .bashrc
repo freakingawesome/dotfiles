@@ -1,4 +1,3 @@
-if [ $(pwd) == ~ ] || [ $(pwd) == / ]; then cd /c/proj; fi
 alias open='cygstart'
 
 function gf() {
